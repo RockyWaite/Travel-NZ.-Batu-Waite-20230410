@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Travel NZ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #A0A8A6;
+            background-image: url('Images/WallpaperBody/wallpaper5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Images/WallpaperBody/wallpaper3.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-text {
+            font-size: 2em;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(129, 129, 129, 0.3);
+        }
+
+        /* Add more styles for Destination/Tour page here */
+
+        .destination-row {
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with transparency */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .destination-row img {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 5px; /* Add a 5px margin around the image */
+            max-height: 500px;
+            width: calc(100% - 10px); /* Adjust width to consider the 5px margin on each side */
+            object-fit: cover;
+        }
+
+        .destination-row h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        .destination-row p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px; /* Adjust the padding as needed */
+         }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+         }
+
+        .footer-text {
+            opacity: 0.8;
+        }
+
+        /* Social media icons in the footer */
+        .social-media img {
+             width: 30px; /* Adjust the size of the social media icons */
+             margin-right: 10px; /* Add margin between icons */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Explore Exciting Destinations</h1>
+            <p>Your journey into the heart of New Zealand begins here</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destination.html">Destinations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <div class="destination-row">
+            <img src="Images/Destinations/destination1.jpg" alt="Destination 1">
+            <h2>Adventure Haven</h2>
+            <p>Experience thrilling adventures in the heart of nature. From hiking trails to water sports, this destination has it all.</p>
+        </div>
+        
+        <div class="destination-row">
+            <img src="Images/Destinations/destination2.jpg" alt="Destination 2">
+            <h2>Serenity Valley</h2>
+            <p>Escape to a peaceful valley surrounded by breathtaking landscapes. Ideal for those seeking tranquility and scenic beauty.</p>
+        </div>
+
+        <div class="destination-row">
+            <img src="Images/Destinations/destination3.jpg" alt="Destination 3">
+            <h2>Enchanted Forest</h2>
+            <p>Discover the magic of an enchanted forest. Walk through ancient trees and experience nature's wonders.</p>
+        </div>
+
+        <div class="destination-row">
+            <img src="Images/Destinations/destination4.jpg" alt="Destination 4">
+            <h2>Golden Beaches</h2>
+            <p>Relax on the golden sands of pristine beaches. Enjoy the sun, surf, and the beauty of New Zealand's coastal gems.</p>
+        </div>
+
+        <div class="destination-row">
+            <img src="Images/Destinations/destination5.jpg" alt="Destination 5">
+            <h2>Snowy Peaks</h2>
+            <p>Experience the thrill of snowy adventures in the majestic peaks. Ski, snowboard, and embrace the winter wonderland.</p>
+        </div>
+
+        <div class="destination-row">
+            <img src="Images/Destinations/destination6.jpg" alt="Destination 6">
+            <h2>Hidden Waterfalls</h2>
+            <p>Explore hidden waterfalls tucked away in lush green landscapes. A serene escape for nature lovers and hikers.</p>
+        </div>
+
+        <div class="destination-row">
+            <img src="Images/Destinations/destination7.jpg" alt="Destination 7">
+            <h2>Island Paradise</h2>
+            <p>Escape to picturesque islands with white sandy beaches. Experience the magic of New Zealand's island paradise.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Travel NZ. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/" target="_blank"><img src="Images/SocialIcon/facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="Images/SocialIcon/twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="Images/SocialIcon/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

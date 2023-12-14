@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel NZ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #A0A8A6; /* Background color */
+            background-image: url('Images/WallpaperBody/wallpaper2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Fix the background image while scrolling */
+        }
+
+        .hero-image {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden; /* Hide overflow to prevent image from extending beyond the hero-image div */
+        }
+
+        .hero-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Images/WallpaperBody/wallpaper1.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Place the pseudo-element behind the hero text */
+        }
+
+        .hero-text {
+            font-size: 2em;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .container {
+            max-width: 80%; /* Increased the max-width for better responsiveness */
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(52, 82, 102, 0.3);
+            /* margin-top: 70px; Remove this line to eliminate the top margin */
+        }
+
+        /* Banner section */
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px; /* Add margin for spacing */
+            margin-left: 0; /* Remove left margin */
+            margin-right: 0; /* Remove right margin */
+        }
+
+        .banner-image {
+            flex: 0 0 calc(33.33% - 10px); /* Adjust width based on the number of images */
+            margin-bottom: 10px; /* Add margin between images */
+        }
+
+        .banner-image img {
+            width: 100%; /* Make the image fill the container */
+            height: 1366px; /* Maintain aspect ratio */
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .banner-image {
+                flex: 0 0 100%; /* Full width for small screens, adjust as needed */
+            }
+        }
+
+        /* Carousel section */
+        .carousel-container {
+            position: relative;
+            height: 60vh; /* Adjust the height as needed */
+            overflow: hidden;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 500%; /* Adjust width based on the number of images */
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            flex: 0 0 20%; /* Adjust width based on the number of images */
+        }
+
+        .carousel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .carousel-arrow-left {
+            left: 10px;
+        }
+
+        .carousel-arrow-right {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 0 6px;
+            cursor: pointer;
+            opacity: 0.7; /* Set default opacity */
+        }
+
+        .carousel-indicator.active {
+            background-color: #fff;
+            opacity: 1;
+        }
+
+        /* Custom spacing */
+        .custom-space {
+            margin-top: 50px;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .banner-image {
+                flex: 0 0 100%; /* Full width for small screens, adjust as needed */
+            }
+        }
+
+        /* Paragraph with Title section */
+        .paragraph-section {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(54, 90, 124, 0.15);
+            margin-top: 20px; /* Add margin for spacing */
+        }
+
+        .modern-title {
+            font-family: 'YourModernFont', sans-serif; /* Add your desired modern font */
+            font-size: 2.5em;
+            color: white;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .modern-paragraph {
+            font-size: 1.2em;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Additional styles for the table section */
+        .max-height-400 {
+            max-height: 400px !important; /* Adjust the max height as needed */
+        }
+
+        .table-section {
+            margin-top: 20px; /* Add margin for spacing */
+            overflow-x: auto; /* Enable horizontal scrolling on small screens */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(54, 90, 124, 0.411);
+        }
+
+        .table-paragraph {
+            font-size: 1.2em;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .table-section td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            .table-section img {
+                width: 100%;
+                height: auto;
+                max-height: 400px !important; /* Use the utility class for max-height */
+            }
+        }
+
+        /* Reviews section styles */
+        .reviews-section {
+            margin-top: 50px;
+        }
+
+        .review {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .user {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px; /* Adjust the padding as needed */
+            text-align: center; /* Center the text */
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 14px; /* Adjust the font size as needed */
+        }
+
+        .social-media img {
+             width: 30px; /* Adjust the size of the social media icons */
+             margin-right: 10px; /* Add margin between icons */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Welcome to Travel NZ</h1>
+            <p>Your adventure begins here</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destination.html">Destinations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Custom spacing -->
+        <div class="custom-space"></div>
+
+        <!-- Banner section -->
+        <div class="banner">
+            <div class="banner-image">
+                <img src="Images/BannerImages/banner1.jpg" alt="Banner 1">
+            </div>
+            <div class="banner-image">
+                <img src="Images/BannerImages/banner2.jpg" alt="Banner 2">
+            </div>
+            <div class="banner-image">
+                <img src="Images/BannerImages/banner3.jpg" alt="Banner 3">
+            </div>
+        </div>
+
+        <!-- Custom spacing -->
+        <div class="custom-space"></div>
+
+        <!-- Carousel section -->
+        <div class="carousel-container">
+            <div id="carousel1" class="carousel-slide">
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide1.jpg" alt="Image 1">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide2.jpg" alt="Image 2">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide3.jpg" alt="Image 3">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide4.jpg" alt="Image 4">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide5.jpg" alt="Image 5">
+                </div>
+            </div>
+            <div class="carousel-arrow carousel-arrow-left" onclick="prevSlide1()">&#8249;</div>
+            <div class="carousel-arrow carousel-arrow-right" onclick="nextSlide1()">&#8250;</div>
+            <div id="indicators1" class="carousel-indicators">
+                <div class="carousel-indicator" onclick="currentSlide1(0)"></div>
+                <div class="carousel-indicator" onclick="currentSlide1(1)"></div>
+                <div class="carousel-indicator" onclick="currentSlide1(2)"></div>
+                <div class="carousel-indicator" onclick="currentSlide1(3)"></div>
+                <div class="carousel-indicator" onclick="currentSlide1(4)"></div>
+            </div>
+        </div>
+
+        <div class="paragraph-section">
+            <h2 class="modern-title">Discover the Beauty of New Zealand</h2>
+            <p class="modern-paragraph">Embark on a journey to New Zealand, where nature's wonders unfold at every turn. As you traverse the lush landscapes, you'll find yourself surrounded by the majestic Southern Alps, their snow-capped peaks reaching for the heavens.</p>
+            <p class="modern-paragraph">Wander through enchanting forests filled with native flora and fauna, the air filled with the sweet scent of adventure. Along the way, encounter friendly locals who share tales of the rich Maori culture, adding depth to your exploration.</p>
+            <p class="modern-paragraph">The journey continues to the pristine beaches that line the coast, where golden sands meet the azure waters of the Pacific. As the sun sets, casting a warm glow over the landscapes, you'll realize that each moment in New Zealand is a chapter in a story waiting to be written.</p>
+        </div>
+
+        <!-- Table section -->
+        <div class="table-section">
+            <table style="width:100%">
+                <tr>
+                    <!-- First row of images and paragraphs -->
+                    <td>
+                        <img src="Images/TableImages/image1.jpeg" alt="Image 1" style="width:100%" class="max-height-400">
+                        <p class="table-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </td>
+                    <td>
+                        <img src="Images/TableImages/image2.jpeg" alt="Image 2" style="width:100%" class="max-height-400">
+                        <p class="table-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </td>
+                    <td>
+                        <img src="Images/TableImages/image3.jpeg" alt="Image 3" style="width:100%" class="max-height-400">
+                        <p class="table-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- Second row of images and paragraphs -->
+                    <td>
+                        <img src="Images/TableImages/image4.jpeg" alt="Image 4" style="width:100%" class="max-height-400">
+                        <p class="table-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </td>
+                    <td>
+                        <img src="Images/TableImages/image5.jpeg" alt="Image 5" style="width:100%" class="max-height-400">
+                        <p class="table-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </td>
+                    <td>
+                        <img src="Images/TableImages/image6.jpeg" alt="Image 6" style="width:100%" class="max-height-400">
+                        <p class="table-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Additional Carousel section -->
+        <div class="carousel-container">
+            <div id="carousel2" class="carousel-slide">
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide6.jpg" alt="Image 6">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide7.jpg" alt="Image 7">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide8.jpg" alt="Image 8">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide9.jpg" alt="Image 9">
+                </div>
+                <div class="carousel-image">
+                    <img src="Images/SlideImages/Slide10.jpg" alt="Image 10">
+                </div>
+            </div>
+            <div class="carousel-arrow carousel-arrow-left" onclick="prevSlide2()">&#8249;</div>
+            <div class="carousel-arrow carousel-arrow-right" onclick="nextSlide2()">&#8250;</div>
+            <div id="indicators2" class="carousel-indicators">
+                <div class="carousel-indicator" onclick="currentSlide2(0)"></div>
+                <div class="carousel-indicator" onclick="currentSlide2(1)"></div>
+                <div class="carousel-indicator" onclick="currentSlide2(2)"></div>
+                <div class="carousel-indicator" onclick="currentSlide2(3)"></div>
+                <div class="carousel-indicator" onclick="currentSlide2(4)"></div>
+            </div>
+        </div>
+
+        <!-- Reviews section -->
+        <div class="reviews-section">
+            <h2>What Our Visitors Say</h2>
+
+            <!-- Review 1 -->
+            <div class="review">
+                <div class="rating">★★★★☆</div>
+                <div class="user">AdventureSeeker123</div>
+                <div class="review-text">
+                    Travel NZ offers a captivating virtual journey through the stunning landscapes of New Zealand. 
+                    The carousel feature showcasing different images is a highlight, providing a visual feast of the country's beauty. 
+                    The website design is user-friendly, and I appreciated the smooth transitions between sections. However, 
+                    a bit more information about each destination would be helpful. Overall, a great experience for anyone dreaming of a New Zealand adventure!
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <div class="user">NatureEnthusiast22</div>
+                <div class="review-text">
+                    Absolutely mesmerizing! The second carousel's images took my breath away. 
+                    It's like a digital escape to New Zealand's wonders. The combination of banners, carousels, 
+                    and the detailed paragraph section creates a perfect balance between visual appeal and informative content. 
+                    I'm already planning my next vacation to explore the places featured on this website. Kudos to Travel NZ for creating such an immersive online experience.
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <div class="user">WanderlustDreamer</div>
+                <div class="review-text">
+                    Travel NZ has captured the essence of New Zealand's beauty beautifully. 
+                    The website's design feels like a virtual tour, making me feel connected to the landscapes even from my computer. 
+                    The addition of multiple carousels and well-curated images creates a dynamic and engaging experience. The information provided is concise and informative, 
+                    sparking the wanderlust in me. An excellent platform for travel enthusiasts and anyone looking to discover the magic of New Zealand.
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; 2023 Travel NZ. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/" target="_blank"><img src="Images/SocialIcon/facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="Images/SocialIcon/twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="Images/SocialIcon/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for the first carousel
+        const slide1 = document.getElementById('carousel1');
+        const arrowLeft1 = slide1.previousElementSibling;
+        const arrowRight1 = slide1.nextElementSibling;
+        const indicators1 = document.getElementById('indicators1');
+        let currentIndex1 = 0;
+
+        function goToSlide1(index) {
+            currentIndex1 = index;
+            slide1.style.transform = `translateX(${-currentIndex1 * 20}%)`;
+
+            // Update the active indicator for the first carousel
+            indicators1.querySelectorAll('.carousel-indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function prevSlide1() {
+            currentIndex1 = (currentIndex1 === 0) ? 4 : currentIndex1 - 1;
+            goToSlide1(currentIndex1);
+        }
+
+        function nextSlide1() {
+            currentIndex1 = (currentIndex1 === 4) ? 0 : currentIndex1 + 1;
+            goToSlide1(currentIndex1);
+        }
+
+        function currentSlide1(index) {
+            goToSlide1(index);
+        }
+
+        // JavaScript for the second carousel
+        const slide2 = document.getElementById('carousel2');
+        const arrowLeft2 = slide2.previousElementSibling;
+        const arrowRight2 = slide2.nextElementSibling;
+        const indicators2 = document.getElementById('indicators2');
+        let currentIndex2 = 0;
+
+        function goToSlide2(index) {
+            currentIndex2 = index;
+            slide2.style.transform = `translateX(${-currentIndex2 * 20}%)`;
+
+            // Update the active indicator for the second carousel
+            indicators2.querySelectorAll('.carousel-indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function prevSlide2() {
+            currentIndex2 = (currentIndex2 === 0) ? 4 : currentIndex2 - 1;
+            goToSlide2(currentIndex2);
+        }
+
+        function nextSlide2() {
+            currentIndex2 = (currentIndex2 === 4) ? 0 : currentIndex2 + 1;
+            goToSlide2(currentIndex2);
+        }
+
+        function currentSlide2(index) {
+            goToSlide2(index);
+        }
+    </script>
+
+    
+
+</body>
+</html>
